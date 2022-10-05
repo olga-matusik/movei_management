@@ -1,0 +1,21 @@
+<body style="background-color:blueviolet">
+    <h1 style="color:wheat">Here are all movies played by:</h1>
+    <!-- between % everything is considered Python code-->
+
+    <div>
+        <table style="background-color:palevioletred">
+        <tr>
+            <th style="color:whitesmoke">{{name}}</th>
+        </tr>
+            {% for movie in data %}
+        <tr>
+            <td>{{movie[0]}}</td>
+        </tr>
+            {% endfor %}
+        </table>
+    </div>
+    
+    <button onclick="window.location.href='/';">HOME</button>
+    <button onclick="window.location.href='/actors-table/';">Take me back to the actors!</button>
+    
+</body>

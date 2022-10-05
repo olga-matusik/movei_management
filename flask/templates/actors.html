@@ -1,0 +1,26 @@
+<body style="background-color:blueviolet">
+
+    <h1 style="color:wheat">You have movies played by those actors/ actresses:</h1>
+    
+    <table style="background-color:palevioletred">
+    {% for actor in actors %}
+    <tr>
+        <td>{{actor[0]}}</td>
+    </tr>
+    {% endfor %}
+    </table>
+
+    <p style="color:wheat">Search movie by an actor/ actress</p>
+
+    <form action="/actor-movies" method="get">
+        <label for="actors-select" style="color:wheat">Choose actor/actress:</label>
+        <select name="actor-name" id="actors-select">
+            {% for actor in actors %} 
+                <option value="{{actor[0]}}"> {{actor[0]}}</option>
+            {% endfor %} 
+        </select> 
+        <input type="submit">
+    </form>
+    <button onclick="window.location.href='/';">HOME</button>
+    
+</body>

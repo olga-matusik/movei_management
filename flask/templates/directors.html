@@ -1,0 +1,27 @@
+<body style="background-color:blueviolet">
+
+<h1 style="color:wheat">You have movies made by those directors:</h1>
+
+<table style="background-color:palevioletred">
+{% for director in directors %}
+<tr>
+    <td>{{director[0]}}</td>
+</tr>
+{% endfor %}
+</table>
+
+<p style="color:wheat">Search movie by a director</p>
+
+    <form action="/director-movies" method="get">
+        <label for="directors-select" style="color:wheat">Choose director:</label>
+        <select name="director-name" id="directors-select">
+            {% for director in directors %} 
+                <option value="{{director[0]}}"> {{director[0]}}</option>
+            {% endfor %} 
+        </select> 
+        <input type="submit">
+    </form>
+
+    <button onclick="window.location.href='/';">HOME</button>
+
+</body>
