@@ -31,6 +31,8 @@ git clone https://github.com/olga-matusik/movei_management.git
 #BUILD APP DOCKER IMAGE
 cd ~/movei_management/flask 
 docker build -t movie-app .
+
 #RUN MYSQL CONTAINER
 #DEPLOY OUR DATABASE INSIDE MYSQL CONTAINER
 #RUN THE CONTAINER OF AN APP - FLASK APP
+docker run -d -p 80:80  --name=movie-app  -v $PWD/movei_management/flask:/app movie-app
