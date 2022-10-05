@@ -26,8 +26,11 @@ sudo service docker start
 
 #CLONE MOVIE APP REPO (with Docker file for the app inside)
 #create uwsgi.ini and requirements.txt first
+git clone https://github.com/olga-matusik/movei_management.git
 
 #BUILD APP DOCKER IMAGE
+cd ~/movei_management/flask 
+docker build -t movie-app .
 #RUN MYSQL CONTAINER
 #DEPLOY OUR DATABASE INSIDE MYSQL CONTAINER
 #RUN THE CONTAINER OF AN APP - FLASK APP

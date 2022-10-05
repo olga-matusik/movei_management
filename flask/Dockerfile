@@ -2,6 +2,9 @@
 FROM tiangolo/uwsgi-nginx-flask:python3.8-alpine
 #install bash command processor and the nano editor, and also git client
 RUN apk --update add bash nano
+RUN apk update \
+    && apk add --virtual build-deps gcc python3-dev musl-dev \
+    && apk add --no-cache mariadb-dev
 #environment variable specific to the Docker image
 ENV STATIC_URL /static
 #define static folder
