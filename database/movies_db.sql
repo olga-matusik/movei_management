@@ -1,3 +1,5 @@
+DROP DATABASE IF EXISTS movie_db;
+
 # create a new database
 CREATE DATABASE movie_db;
 
