@@ -1,15 +1,6 @@
 # create a new database
 CREATE DATABASE movie_db;
 
-# show all databases
-SHOW DATABASES;
-
-# use our new database
-USE movie_db;
-
-# show existing tables
-SHOW TABLES;
-
 # create table directors
 CREATE TABLE directors_tbl(
     id int NOT NULL AUTO_INCREMENT,
@@ -17,9 +8,6 @@ CREATE TABLE directors_tbl(
     year_of_birth int,
     PRIMARY KEY (id)
 );
-
-# get information about a table directors_tbl
-DESCRIBE directors_tbl;
 
 # add a new entry to the table
 INSERT INTO directors_tbl VALUES(
@@ -42,9 +30,6 @@ INSERT INTO directors_tbl VALUES(
     "Chloe Zhaos",
     1982
 );
-
-# show all data from a table
-SELECT * FROM directors_tbl;
 
 # create movies_tbl
 CREATE TABLE movies_tbl(
@@ -242,56 +227,4 @@ INSERT INTO movie_actors_tbl VALUES(
     (SELECT id FROM movies_tbl WHERE title LIKE "Avatar"),
     (SELECT id FROM main_actors_tbl WHERE name LIKE "Sigourney Weaver")
 );
-
-
-# joining two tables when looking for information in both tables
-SELECT * FROM movies_tbl
-JOIN directors_tbl ON movies_tbl.director_id=directors_tbl.id
-WHERE movies_tbl.title LIKE "Inception";
-
-
-
-#tasks
-#List all the actors born before 1980.
-
-SELECT name FROM main_actors_tbl WHERE year_of_birth < 1980;
-
-#How many movies did Nolan direct ?
-
-SELECT COUNT(movies_tbl.title) FROM movies_tbl 
-JOIN directors_tbl ON movies_tbl.director_id=directors_tbl.id
-WHERE directors_tbl.name="Christopher Nolan";
-
-#Among all the movies of James Cameron, how many were female actors ?
-
-SELECT COUNT(DISTINCT main_actors_tbl.name) FROM main_actors_tbl
-JOIN movie_actors_tbl ON main_actors_tbl.id=movie_actors_tbl.main_actor_id
-JOIN movies_tbl ON movie_actors_tbl.movie_id=movies_tbl.id
-JOIN directors_tbl ON movies_tbl.director_id=directors_tbl.id
-WHERE directors_tbl.name="James Cameron" AND main_actors_tbl.sex="F";
-
-#How many directors did Leonardo DiCaprio worked with ?
-
-SELECT COUNT(directors_tbl.name) FROM directors_tbl
-JOIN movies_tbl ON directors_tbl.id=movies_tbl.director_id
-JOIN movie_actors_tbl ON movies_tbl.id=movie_actors_tbl.movie_id
-JOIN main_actors_tbl ON main_actors_tbl.id=movie_actors_tbl.main_actor_id
-WHERE main_actors_tbl.name="Leonardo DiCaprio";
-
-#Who is the oldest director ?
-
-SELECT name FROM directors_tbl ORDER BY year_of_birth LIMIT 1;
-
-#What is the earliest movie of the first director ?
-
-SELECT title, release_year FROM movies_tbl WHERE director_id=1 ORDER BY release_year LIMIT 1;
-
-#What is the latest movie of the youngest actor ?
-
-SELECT movies_tbl.title, movies_tbl.release_year FROM movies_tbl
-JOIN movie_actors_tbl ON movies_tbl.id=movie_actors_tbl.movie_id
-JOIN main_actors_tbl ON movie_actors_tbl.main_actor_id=main_actors_tbl.id
-WHERE main_actors_tbl.name =
-(SELECT main_actors_tbl.name FROM main_actors_tbl ORDER BY year_of_birth DESC LIMIT 1)
-ORDER BY movies_tbl.release_year DESC LIMIT 1;
 
