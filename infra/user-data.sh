@@ -30,6 +30,9 @@ cd ~/movei_management/flask
 sudo docker build -t movie-app .
 
 #RUN MYSQL CONTAINER
+mkdir ~/database
+sudo docker run -d -p 3306:3306 -v ~/database:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=my-secret-pw mysql:latest
 #DEPLOY OUR DATABASE INSIDE MYSQL CONTAINER
+
 #RUN THE CONTAINER OF AN APP - FLASK APP
-sudo docker run -d -p 80:80  --name=movie-app  -v ~/movei_management/flask/app:/app movie-app
+sudo docker run -d --name movie-db-mysql -p 80:80  --name=movie-app  -v ~/movei_management/flask/app:/app movie-app 
