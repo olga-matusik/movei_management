@@ -24,14 +24,14 @@ data "aws_subnet" "my_public_subnet" {
 data "aws_subnet" "my_priv_subnet_1" {
   filter {
     name   = "tag:Name"
-    values = [var.private_subnet_name_1]
+    values = [var.priv_subnet_name_1]
   }
 }
 
 data "aws_subnet" "my_priv_subnet_2" {
   filter {
     name   = "tag:Name"
-    values = [var.private_subnet_name_2]
+    values = [var.priv_subnet_name_2]
   }
 }
 

@@ -7,7 +7,7 @@ resource "aws_db_instance" "movie_db" {
   username             = var.db_name
   password             = jsondecode(data.aws_secretsmanager_secret_version.db_secret_version.secret_string)["movie_db_password"]
   skip_final_snapshot  = var.db_skip_last_snapshot
-  db_subnet_grup_name = aws_db_subnet_group.db_subnet_group.id
+  db_subnet_group_name = aws_db_subnet_group.db_subnet_group.id
   vpc_security_group_ids = [aws_security_group.db_sg.id]
 }
 

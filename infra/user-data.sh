@@ -29,10 +29,8 @@ git clone https://github.com/olga-matusik/movei_management.git
 cd ~/movei_management/flask 
 sudo docker build -t movie-app .
 
-#RUN MYSQL CONTAINER
-mkdir ~/database
-sudo docker run -d -p 3306:3306 -v ~/database:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=my-secret-pw mysql:latest
-#DEPLOY OUR DATABASE INSIDE MYSQL CONTAINER
+#DEPLOY DATABASE INSIDE RDS DATABASE
+mysql -h terraform-20221006145537473800000001.cpelnmirnwb7.eu-central-1.rds.amazonaws.com -u root -pmy-secret-pw < ~/movei_management/database/movies_db.sql
 
 #RUN THE CONTAINER OF AN APP - FLASK APP
 sudo docker run -d --name movie-db-mysql -p 80:80  --name=movie-app  -v ~/movei_management/flask/app:/app movie-app 

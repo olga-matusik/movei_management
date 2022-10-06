@@ -39,7 +39,7 @@ resource "aws_security_group" "db_sg" {
     from_port   = 3306
     to_port     = 3306
     protocol    = "tcp"
-    security_grups = [aws_security_group.my_public_app_sg.id]
+    security_groups = [aws_security_group.my_public_app_sg.id]
   }
 
   egress {

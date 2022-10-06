@@ -7,7 +7,7 @@ from flask_mysqldb import MySQL
 #instanciated a class Falsk to a variable
 app = Flask("MovieApp")
 
-app.config["MYSQL_HOST"] = "127.0.0.1"
+app.config["MYSQL_HOST"] = "terraform-20221006145537473800000001.cpelnmirnwb7.eu-central-1.rds.amazonaws.com"
 app.config["MYSQL_USER"] = "root"
 app.config["MYSQL_PASSWORD"] = "my-secret-pw"
 app.config["MYSQL_DB"] = "movie_db"

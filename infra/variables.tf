@@ -20,6 +20,16 @@ variable "public_subnet_name" {
   type        = string
 }
 
+variable "priv_subnet_name_1" {
+  description = "Name of a Priv subnet 1"
+  type        = string
+}
+
+variable "priv_subnet_name_2" {
+  description = "Name of a Priv Subnet 2"
+  type        = string
+}
+
 variable "ec2_type" {
   description = "Type of instance I want to use"
   type        = string
