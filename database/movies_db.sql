@@ -3,6 +3,9 @@ DROP DATABASE IF EXISTS movie_db;
 # create a new database
 CREATE DATABASE movie_db;
 
+#use new created bd
+USE movie_db;
+
 # create table directors
 CREATE TABLE directors_tbl(
     id int NOT NULL AUTO_INCREMENT,
