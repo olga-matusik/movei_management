@@ -169,6 +169,13 @@ INSERT INTO main_actors_tbl VALUES(
     "F"
 );
 
+INSERT INTO main_actors_tbl VALUES(
+    null, 
+    "Arnold Schwarzenegger", 
+    1947, 
+    "M"
+    );
+
 # Create your Movie-Actors table
 CREATE TABLE movie_actors_tbl(
     movie_id int NOT NULL,
@@ -215,7 +222,7 @@ INSERT INTO movie_actors_tbl VALUES(
 
 INSERT INTO movie_actors_tbl VALUES(
     (SELECT id FROM movies_tbl WHERE title LIKE "Titanic"),
-    (SELECT id FROM main_actors_tbl WHERE name LIKE "Leonardo DiCaprion")
+    (SELECT id FROM main_actors_tbl WHERE name LIKE "Leonardo DiCaprio")
 );
 
 INSERT INTO movie_actors_tbl VALUES(
