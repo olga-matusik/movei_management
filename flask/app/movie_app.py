@@ -16,7 +16,6 @@ mysql = MySQL(app)
 
 #define routes, part after a "/" in a domaine name
 @app.route("/") #decorater, change the behavior of the function- makes the def be executed without rendering the function
-
 def hello_world():
     return render_template("index.html") # returns html
 
@@ -87,7 +86,6 @@ def director_movies():
     data = cursor.fetchall()
     cursor.close()
     return render_template("director_movies.html", name=name, data=data)    
-
 
 if __name__ == "__main__":
     app.run(host="127.0.0.1")
