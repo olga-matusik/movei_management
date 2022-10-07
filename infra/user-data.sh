@@ -30,7 +30,7 @@ cd ~/movei_management/flask
 sudo docker build -t movie-app .
 
 #DEPLOY DATABASE INSIDE RDS DATABASE
-mysql -h terraform-20221006145537473800000001.cpelnmirnwb7.eu-central-1.rds.amazonaws.com -u root -pmy-secret-pw < ~/movei_management/database/movies_db.sql
+mysql -h terraform-20221007103204294300000001.cpelnmirnwb7.eu-central-1.rds.amazonaws.com -u root -pmy-secret-pw < ~/movei_management/database/movies_db.sql
 
 #RUN THE CONTAINER OF AN APP - FLASK APP
 sudo docker run -d --name movie-db-mysql -p 80:80  --name=movie-app  -v ~/movei_management/flask/app:/app movie-app 
