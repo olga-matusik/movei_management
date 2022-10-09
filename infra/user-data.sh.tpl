@@ -30,7 +30,13 @@ cd ~/movei_management/flask
 sudo docker build -t movie-app .
 
 #DEPLOY DATABASE INSIDE RDS DATABASE
-mysql -h terraform-20221007103204294300000001.cpelnmirnwb7.eu-central-1.rds.amazonaws.com -u root -pmy-secret-pw < ~/movei_management/database/movies_db.sql
+mysql -h ${db_endpoint} -u root -p${db_password} < ~/movei_management/database/movies_db.sql
+
+#to replace <DB_ENDPOINT_PLACEHOLDER> and <DB_PASSWORD_PLACEHOLDER> with the variable and put it into the app file
+#s- substitution, g-in all occurances
+sed -i "s/DB_ENDPOINT_PLACEHOLDER/${db_endpoint}/g" ~/movei_management/flask/app/movie_app.py
+sed -i "s/DB_PASSWORD_PLACEHOLDER/${db_password}/g" ~/movei_management/flask/app/movie_app.py
+
 
 #RUN THE CONTAINER OF AN APP - FLASK APP
 sudo docker run -d --name movie-db-mysql -p 80:80  --name=movie-app  -v ~/movei_management/flask/app:/app movie-app 
