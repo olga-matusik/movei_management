@@ -7,7 +7,7 @@ resource "aws_instance" "my_public_server" {
   #to use variables in the user_data file we need to have templatefile in terraform file and change user_data.sh to user_data.sh.launch_template {
   #templatefile(path, vars) as strings (?) to the file where you use the variable
   #variables as dictionary
-  }
+  
   user_data = templatefile("${path.module}/user-data.sh.tpl", 
               {
                 db_endpoint = aws_db_instance.movie_db.address,
