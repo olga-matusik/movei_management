@@ -39,4 +39,4 @@ sed -i "s/DB_PASSWORD_PLACEHOLDER/${db_password}/g" ~/movei_management/flask/app
 
 
 #RUN THE CONTAINER OF AN APP - FLASK APP
-sudo docker run -d --name movie-db-mysql -p 80:80  --name=movie-app  -v ~/movei_management/flask/app:/app movie-app 
+sudo docker run -d -p 80:80  --name=movie-app  -v ~/movei_management/flask/app:/app movie-app 
