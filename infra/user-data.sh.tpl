@@ -23,7 +23,7 @@ sudo apt-get install docker.io -y
 
 #CLONE MOVIE APP REPO (with Docker file for the app inside)
 #create uwsgi.ini and requirements.txt first
-git clone https://github.com/olga-matusik/movei_management.git
+git clone https://github.com/olga-matusik/movei_management.git ~/movei_management
 
 #BUILD APP DOCKER IMAGE
 cd ~/movei_management/flask 
