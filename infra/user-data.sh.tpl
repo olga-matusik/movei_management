@@ -34,8 +34,8 @@ mysql -h ${db_endpoint} -u root -p${db_password} < ~/movei_management/database/m
 
 #to replace <DB_ENDPOINT_PLACEHOLDER> and <DB_PASSWORD_PLACEHOLDER> with the variable and put it into the app file
 #s- substitution, g-in all occurances
-sed "s/DB_ENDPOINT_PLACEHOLDER/${db_endpoint}/g" ~/movei_management/flask/app/movie_app.py
-sed "s/DB_PASSWORD_PLACEHOLDER/${db_password}/g" ~/movei_management/flask/app/movie_app.py
+sed -i "s/DB_ENDPOINT_PLACEHOLDER/${db_endpoint}/g" ~/movei_management/flask/app/movie_app.py
+sed -i "s/DB_PASSWORD_PLACEHOLDER/${db_password}/g" ~/movei_management/flask/app/movie_app.py
 
 
 #RUN THE CONTAINER OF AN APP - FLASK APP
